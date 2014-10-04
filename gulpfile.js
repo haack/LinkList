@@ -14,4 +14,5 @@ gulp.task('watch', function() {
 	gulp.watch('js/*', ['shipit']);
 	gulp.watch('*.html', ['shipit']);
 	gulp.watch('css/*', ['shipit']);
+	gulp.watch('*.js', ['shipit']);
 }); 
