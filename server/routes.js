@@ -36,9 +36,13 @@ exports.findAll = function(req, res, next) {
 };
 
 exports.addLink = function(req, res, next) {
-    var link = req.body;
-    console.log(link);
-    // console.log('Adding link: ' + JSON.stringify(link));
+	data = req.body;
+    var link = {
+    	"url": data.url,
+    	"rating": 0,
+    	"user": "alex",
+    	"date": Date()
+    };
     db.collection('links', function(err, collection) {
         collection.insert(link, {safe:true}, function(err, result) {
             if (err) {
