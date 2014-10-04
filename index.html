@@ -8,11 +8,12 @@
 
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
 </head>
 <body ng-controller="MainController">
 	
-	<li ng-repeat="link in links | orderBy : 'hits' : true" ng-animate=" 'animate' ">
-		<input type="button" ng-click=" hitLink(link._id)"></input>[{{link.hits}}] {{link.url}} 
+	<li ng-repeat="link in links | orderBy : 'hits' : true" class=" repeated-item">
+		<input type="button" ng-click="hitLink(link._id)"></input>[{{link.hits}}] {{link.url}} 
 	</li>
 
 	<hr />

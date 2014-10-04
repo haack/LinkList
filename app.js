@@ -1,4 +1,4 @@
-var app = angular.module('app', []);
+var app = angular.module('app', ['ngAnimate']);
 
 app.controller('MainController', function($scope) {
 	$scope.links = [];
