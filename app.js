@@ -45,10 +45,7 @@ app.controller('MainController', function($scope) {
 	}
 });
 
-
-
-
-
+$('#tags').tagsInput();
 
 $(function() {
 	console.log("Let's go...");
