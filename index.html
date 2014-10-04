@@ -11,8 +11,8 @@
 </head>
 <body ng-controller="MainController">
 	
-	<li ng-repeat="link in links">
-		[{{link.hits}}] {{link.url}} <input type="button" ng-click=" hitLink($index, link._id)"></input>
+	<li ng-repeat="link in links | orderBy : 'hits' : true" ng-animate=" 'animate' ">
+		<input type="button" ng-click=" hitLink(link._id)"></input>[{{link.hits}}] {{link.url}} 
 	</li>
 
 	<hr />

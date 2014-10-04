@@ -28,12 +28,17 @@ app.controller('MainController', function($scope) {
 		});
 	}
 
-	$scope.hitLink = function(index, id) {
+	$scope.hitLink = function(id) {
 		$.ajax({
 			url: "http://localhost:1337/link/hit/"+id,
 			success: function(link) {
 				$scope.$apply(function() {
-					$scope.links[index] = link;
+					console.log("asd");
+					for (var i = 0; i < $scope.links.length; i++) {
+						if ($scope.links[i]._id === id) {
+							$scope.links[i] = link;
+						}
+					}
 				});
 			}
 		});
