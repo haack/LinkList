@@ -20,7 +20,6 @@ db.open(function(err, db) {
 
 exports.findById = function(req, res, next) {
     var id = req.params.id;
-    console.log('Retrieving link: ' + id);
     db.collection('links', function(err, collection) {
         collection.findOne({'_id':new BSON.ObjectID(id)}, function(err, item) {
             res.send(item);
@@ -29,7 +28,6 @@ exports.findById = function(req, res, next) {
 };
  
 exports.findAll = function(req, res, next) {
-	console.log("fetching all...");
     db.collection('links', function(err, collection) {
         collection.find().toArray(function(err, items) {
             res.send(items);

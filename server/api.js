@@ -4,7 +4,6 @@ var express = require('express'),
 var app = express();
 
 app.all('*', function(req, res, next) {
-	console.log("adding cors");
 	res.header('Access-Control-Allow-Origin', '*');
 	res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
 	res.header('Access-Control-Allow-Headers', 'Content-Type');
