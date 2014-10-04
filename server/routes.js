@@ -37,9 +37,10 @@ exports.findAll = function(req, res, next) {
 
 exports.addLink = function(req, res, next) {
 	data = req.body;
+	//TODO validate url
     var link = {
     	"url": data.url,
-    	"rating": 0,
+    	"hits": 0,
     	"user": "alex",
     	"date": Date()
     };
@@ -49,8 +50,30 @@ exports.addLink = function(req, res, next) {
                 res.send({'error':'An error has occurred'});
             } else {
                 console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]);
+                res.send(link);
             }
         });
+    });
+}
+
+exports.hitLink = function(req, res, next) {
+    var id = req.params.id;
+    console.log(id);
+    db.collection('links', function(err, collection) {
+    	//TODO check if legit
+    	collection.findOne({'_id':new BSON.ObjectID(id)}, function(err, item) {
+            item.hits++;
+            collection.update({'_id':new BSON.ObjectID(id)}, item, {safe:true}, function(err, result) {
+	            if (err) {
+	                console.log('Error updating link: ' + err);
+	                res.send({'error':'An error has occurred'});
+	            } else {
+	                console.log('' + result + ' document(s) updated');
+	                res.send(item);
+	            }
+	        });
+        });
+
+        
     });
 }

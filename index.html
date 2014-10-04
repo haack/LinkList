@@ -12,14 +12,14 @@
 <body ng-controller="MainController">
 	
 	<li ng-repeat="link in links">
-		[{{link.rating}}] {{link.url}}
+		[{{link.hits}}] {{link.url}} <input type="button" ng-click=" hitLink($index, link._id)"></input>
 	</li>
 
 	<hr />
 
 	url: <input type="text" id="linkUrl"></input>
 	<br />
-	<input type="button" value="add" onClick="addLink()"></input>
+	<input type="button" value="add" ng-click="addLink()"></input>
 
 	<script src="app.js"></script>
 </body>

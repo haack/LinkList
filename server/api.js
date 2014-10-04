@@ -16,6 +16,7 @@ app.all('*', function(req, res, next) {
 
 app.get('/links', link.findAll);
 app.get('/link/:id', link.findById);
+app.get('/link/hit/:id', link.hitLink);
 app.post('/link', link.addLink);
  
 app.listen(1337);
