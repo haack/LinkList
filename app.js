@@ -2,7 +2,7 @@ var app = angular.module('app', []);
 
 app.controller('MainController', function($scope) {
 	$scope.links = [];
-	console.log("test");
+
 	$.ajax({
 		url: "http://localhost:1337/links/",
 		success: function(data) {
@@ -12,6 +12,16 @@ app.controller('MainController', function($scope) {
 		}
 	});
 });
+
+addLink = function() {
+	$.ajax({
+		type: "POST",
+		url: "http://localhost:1337/link/",
+		data: '{ "url": "'+$("#linkUrl").val()+'"}',
+		contentType: "application/json"
+	});
+}
+
 
 $(function() {
 	console.log("Let's go...");

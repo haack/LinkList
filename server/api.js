@@ -1,7 +1,11 @@
 var express = require('express'),
-    links = require('./routes.js');
+    link = require('./routes.js'),
+    bodyParser = require('body-parser');
  
 var app = express();
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.all('*', function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
@@ -10,8 +14,9 @@ app.all('*', function(req, res, next) {
 	next();
 });
 
-app.get('/links', links.findAll);
-app.get('/link/:id', links.findById);
+app.get('/links', link.findAll);
+app.get('/link/:id', link.findById);
+app.post('/link', link.addLink);
  
 app.listen(1337);
 console.log('Listening on port 1337...');

@@ -34,3 +34,19 @@ exports.findAll = function(req, res, next) {
         });
     });
 };
+
+exports.addLink = function(req, res, next) {
+    var link = req.body;
+    console.log(link);
+    // console.log('Adding link: ' + JSON.stringify(link));
+    db.collection('links', function(err, collection) {
+        collection.insert(link, {safe:true}, function(err, result) {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {
+                console.log('Success: ' + JSON.stringify(result[0]));
+                res.send(result[0]);
+            }
+        });
+    });
+}
