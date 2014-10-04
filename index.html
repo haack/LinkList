@@ -16,6 +16,7 @@
 	
 	<li ng-repeat="link in links | orderBy : 'hits' : true" class=" repeated-item">
 		<input type="button" ng-click="hitLink(link._id)"></input>[{{link.hits}}] {{link.url}} 
+		<span ng-repeat="tag in link.tags">{{tag}}</span>
 	</li>
 
 	<hr />

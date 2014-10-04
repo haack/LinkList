@@ -13,10 +13,17 @@ app.controller('MainController', function($scope) {
 	});
 
 	$scope.addLink = function() {
+		//plugin is a bit messed up. no easy access
+		var items = $('#tags_tagsinput span span').text().split(" ");
+		var tags = [];
+		for (var i = 0; i < items.length-1; i+=2) {
+			tags.push(items[i]); 
+		}
+
 		$.ajax({
 			type: "POST",
 			url: "http://localhost:1337/link/",
-			data: '{ "url": "'+$("#linkUrl").val()+'"}',
+			data: '{ "url": "'+$("#linkUrl").val()+'", "tags": '+ JSON.stringify(tags) +'}',
 			contentType: "application/json",
 			success: function(link) {
 				$scope.$apply(function() {

@@ -38,11 +38,15 @@ exports.findAll = function(req, res, next) {
 exports.addLink = function(req, res, next) {
 	data = req.body;
 	//TODO validate url
+
+	console.log(data.tags);
+
     var link = {
     	"url": data.url,
     	"hits": 0,
     	"user": "alex",
-    	"date": Date()
+    	"date": Date(),
+    	"tags": data.tags
     };
     db.collection('links', function(err, collection) {
         collection.insert(link, {safe:true}, function(err, result) {
