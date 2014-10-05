@@ -20,7 +20,22 @@ app.controller('MainController', function($scope) {
 			tags.push(items[i]); 
 		}
 
+
 		var str = $("#linkUrl").val();
+
+		//strip away http and www
+		if (str.substring(0, 7) == "http://") {
+			str = str.slice(7);
+		}
+
+		if (str.substring(0, 8) == "https://") {
+			str = str.slice(8);
+		}
+
+		if (str.substring(0, 4) == "www.") {
+			str = str.slice(4);
+		}
+
 		var arr = str.split('/'),
 	    address = arr.splice(0,1);
 		var path = arr.join('/');
