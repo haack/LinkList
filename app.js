@@ -39,7 +39,6 @@ app.controller('MainController', function($scope) {
 		var arr = str.split('/'),
 	    address = arr.splice(0,1);
 		var path = arr.join('/');
-
 		$.ajax({
 			type: "POST",
 			url: "http://localhost:1337/link/",

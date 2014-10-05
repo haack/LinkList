@@ -31,9 +31,9 @@
 					<div class="link">
 						<span class="section rank">#{{$index+1}}</span>
 						<span class="section up"><a ng-click="hitLink(link._id)"><img src="img/up.png" width="20"></img></a></span>
-						<span class="section url"><a href="http://{{link.url}}"><span class="extra">http://</span>{{link.url}}<span class="extra">/{{link.path}}</a></span></span>
+						<span class="section url"><a href="http://{{link.url + '/' + link.path}}"><span class="extra">http://</span>{{link.url}}<span class="extra">/{{link.path}}</a></span></span>
 						<span ng-repeat="tag in link.tags">{{tag}}</span>
-						<span class="section hits">[{{link.hits}}] </span>
+						<span class="section hits"><span class="extra">[</span>{{link.hits}}<span class="extra">]</span></span>
 					</div>
 				</li>
 
