@@ -30,7 +30,7 @@
 					<div class="link">
 						<span class="section rank">#{{$index+1}}</span>
 						<span class="section up"><a ng-click="hitLink(link._id)"><img src="img/up.png" width="20"></img></a></span>
-						<span class="section url"><a href="http://{{link.url}}"><span class="extra">http://</span>{{link.url}}<span class="extra">/example/test</a></span></span>
+						<span class="section url"><a href="http://{{link.url}}"><span class="extra">http://</span>{{link.url}}<span class="extra">/{{link.path}}</a></span></span>
 						<span ng-repeat="tag in link.tags">{{tag}}</span>
 						<span class="section hits">[{{link.hits}}] </span>
 					</div>
@@ -40,7 +40,7 @@
 	</div>
 
 	<div id="adder">
-		url: <input type="text" id="linkUrl"></input>
+		http://<input type="text" id="linkUrl"></input>
 		tags: <input name="tags" id="tags" value="" />
 		<br />
 		<input type="button" value="add" ng-click="addLink()"></input>

@@ -43,6 +43,7 @@ exports.addLink = function(req, res, next) {
 
     var link = {
     	"url": data.url,
+    	"path": data.path,
     	"hits": 0,
     	"user": "alex",
     	"date": Date(),

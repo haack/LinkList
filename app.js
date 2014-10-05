@@ -20,10 +20,15 @@ app.controller('MainController', function($scope) {
 			tags.push(items[i]); 
 		}
 
+		var str = $("#linkUrl").val();
+		var arr = str.split('/'),
+	    address = arr.splice(0,1);
+		var path = arr.join('/');
+
 		$.ajax({
 			type: "POST",
 			url: "http://localhost:1337/link/",
-			data: '{ "url": "'+$("#linkUrl").val()+'", "tags": '+ JSON.stringify(tags) +'}',
+			data: '{ "url": "'+address+'", "path": "'+path+'", "tags": '+ JSON.stringify(tags) +'}',
 			contentType: "application/json",
 			success: function(link) {
 				$scope.$apply(function() {
