@@ -75,6 +75,22 @@ app.controller('MainController', function($scope) {
 	}
 });
 
+powerup = function(hits, newHits) {
+	//get _id
+	var found = false;
+	var i = 0;
+	var $scope = angular.element($('body')).scope();
+	while (!found) {
+		if ($scope.links[i].hits === hits) {
+			$scope.$apply(function() {
+				$scope.links[i].hits = newHits;
+			});	
+			found = true;
+		}
+		i++;
+	}
+}
+
 $('#tags').tagsInput();
 
 $(function() {
