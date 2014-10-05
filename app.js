@@ -41,19 +41,23 @@ app.controller('MainController', function($scope) {
 	}
 
 	$scope.hitLink = function(id) {
-		$.ajax({
-			url: "http://localhost:1337/link/hit/"+id,
-			success: function(link) {
-				$scope.$apply(function() {
-					console.log("asd");
-					for (var i = 0; i < $scope.links.length; i++) {
-						if ($scope.links[i]._id === id) {
-							$scope.links[i] = link;
+		console.log(id);
+		// if ($.cookie(id) != "true") {
+			$.ajax({
+				url: "http://localhost:1337/link/hit/"+id,
+				success: function(link) {
+					$scope.$apply(function() {
+						// $.cookie(id, true);
+
+						for (var i = 0; i < $scope.links.length; i++) {
+							if ($scope.links[i]._id === id) {
+								$scope.links[i] = link;
+							}
 						}
-					}
-				});
-			}
-		});
+					});
+				}
+			});
+		// }
 	}
 });
 

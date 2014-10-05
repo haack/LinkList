@@ -74,7 +74,18 @@ exports.hitLink = function(req, res, next) {
 	                res.send({'error':'An error has occurred'});
 	            } else {
 	                console.log('' + result + ' document(s) updated');
-	                res.send(item);
+	                //add to hitlist
+	                var hit = {"ip": req.ip, "link_id": id};
+	                db.collection('hitlist', function(err, collection) {
+		                collection.insert(hit, {safe:true}, function(err, result) {
+				            if (err) {
+				                res.send({'error':'An error has occurred'});
+				            } else {
+				                console.log('Success: ' + JSON.stringify(result[0]));
+	                			res.send(item);
+				            }
+				        });
+		            });
 	            }
 	        });
         });

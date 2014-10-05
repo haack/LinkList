@@ -12,6 +12,7 @@
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.js"></script>
 	<script src="js/jquery.tagsinput.js"></script>
+	<script src="js/jquery.cookie.js"></script>
 </head>
 <body ng-controller="MainController">
 	<div class="banner">
@@ -26,7 +27,7 @@
 	<div id="frame">
 		<div id="content">
 			<ul id="list">
-				<li ng-repeat="link in links | orderBy : 'hits' : true" class=" repeated-item">
+				<li ng-repeat="link in links | orderBy : 'hits' : true">
 					<div class="link">
 						<span class="section rank">#{{$index+1}}</span>
 						<span class="section up"><a ng-click="hitLink(link._id)"><img src="img/up.png" width="20"></img></a></span>
@@ -34,17 +35,20 @@
 						<span ng-repeat="tag in link.tags">{{tag}}</span>
 						<span class="section hits">[{{link.hits}}] </span>
 					</div>
-				</li>	
+				</li>
+
+				<li class="inputrow">
+					<div class="link inputrow">
+						<span class="section rank">#</span>
+						<span class="section up"></span>
+						<span class="section url"><input type="text" id="linkUrl" placeholder="Enter url..."></input><input type="button" value="add" ng-click="addLink()"></input></span>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</div>
 
-	<div id="adder">
-		http://<input type="text" id="linkUrl"></input>
-		tags: <input name="tags" id="tags" value="" />
-		<br />
-		<input type="button" value="add" ng-click="addLink()"></input>
-	</div>
+
 	<script src="app.js"></script>
 </body>
 </html>

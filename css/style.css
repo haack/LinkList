@@ -133,20 +133,20 @@ html, body {
 	border: none;
 }
 
+#linkUrl {
+	height: 30px;
+	font-size: 30px;
+	font-family: lato;
+	width: 100%;
+	margin-bottom: 20px;
+	margin-left: 50px;
+}
+
+.inputrow {
+	margin-top: 50px;
+}
+
 #adder {
 	float: left;
 	width: 100%;
 }
-/*
-.repeated-item.ng-enter, .repeated-item.ng-move {
- -webkit-transition:0.5s linear all;
- -moz-transition:0.5s linear all;
- -o-transition:0.5s linear all;
- transition:0.5s linear all;
- opacity:0;
-}
-
-.repeated-item.ng-enter.ng-enter-active,
-.repeated-item.ng-move.ng-move-active {
- opacity:1;
-}*/
