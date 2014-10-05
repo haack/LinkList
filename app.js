@@ -56,7 +56,6 @@ app.controller('MainController', function($scope) {
 	}
 
 	$scope.hitLink = function(id) {
-		console.log(id);
 		// if ($.cookie(id) != "true") {
 			$.ajax({
 				url: "http://localhost:1337/link/hit/"+id,
