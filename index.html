@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
 
     <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
@@ -13,19 +14,31 @@
 	<script src="js/jquery.tagsinput.js"></script>
 </head>
 <body ng-controller="MainController">
+	<div class="banner">
+		<span id="title"><span class="code">&lt;<span class="anchor">a</span>&gt;</span><span id="main">Link<span class="emph">List</span></span><span class="code">&lt;/<span class="anchor">a</span>&gt;</span></span>
+	</div>
+	<div class="stripe"></div>
 	
-	<li ng-repeat="link in links | orderBy : 'hits' : true" class=" repeated-item">
-		<input type="button" ng-click="hitLink(link._id)"></input>[{{link.hits}}] {{link.url}} 
-		<span ng-repeat="tag in link.tags">{{tag}}</span>
-	</li>
-
-	<hr />
-
-	url: <input type="text" id="linkUrl"></input>
-	tags: <input name="tags" id="tags" value="" />
-	<br />
-	<input type="button" value="add" ng-click="addLink()"></input>
-
+	<div id="content">
+		<ul id="list">
+			<li ng-repeat="link in links | orderBy : 'hits' : true" class=" repeated-item">
+				<div class="link">
+					<span class="section rank">#1</span>
+					<a ng-click="hitLink(link._id)"><span class="section up">^</span></a>
+					<span class="section url">{{link.url}}</span>
+					<span ng-repeat="tag in link.tags">{{tag}}</span>
+					<span class="section hits">[{{link.hits}}] </span>
+				</div>
+			</li>	
+		</ul>
+	</div>
+	
+	<div id="adder">
+		url: <input type="text" id="linkUrl"></input>
+		tags: <input name="tags" id="tags" value="" />
+		<br />
+		<input type="button" value="add" ng-click="addLink()"></input>
+	</div>
 	<script src="app.js"></script>
 </body>
 </html>

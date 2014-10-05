@@ -1,12 +1,95 @@
 body {
-	
+	background-color: #F8F8F2;
 }
 
-li {
+.banner {
+	background-color: #3E3D32;
+	padding: 0px 50px;
+}
+
+#title {
+	font-size: 120px;
 	font-family: Lato;
-	font-size: 20px;
+	letter-spacing: -7px;
+	color: #F8F8F2;
+	font-weight: 300;
+	margin: 0 auto;
 }
 
+#title .code {
+	font-size: 60px;
+	color: #85816E;
+	margin: 0px -5px;
+	font-weight: bold;
+	position: relative;
+	top: -10px;
+}
+
+#title .code .anchor {
+	font-size: 70px;
+	color: #CCDF32;
+}
+.stripe {
+	height: 8px;
+	width: 100%;
+	background-image: url("/img/stripe.png");
+	background-repeat: repeat-x;
+}
+
+.emph {
+	font-weight: 600;
+}
+
+#content {
+	width: 800px;
+	margin: 0 auto;
+	padding: 20px 50px;
+}
+
+#list li {
+	list-style: none;
+}
+
+.link {
+	border: 1px solid #75715E;
+	margin-bottom: 10px;
+	float: left;
+	width: 100%;
+	font-size: 30px;
+}
+
+.section {
+	border-right: 1px solid #75715E;
+	padding: 15px 25px;
+}
+
+.link .rank {
+	float: left;
+}
+
+.link .up {
+	float: left;
+}
+
+.link .url {
+	float: left;
+}
+
+.link .tags {
+	float: left;
+}
+
+.link .hits {
+	float: right;
+	border: none;
+	border-left: 1px solid #75715E;
+}
+
+#adder {
+	float: left;
+	width: 100%;
+}
+/*
 .repeated-item.ng-enter, .repeated-item.ng-move {
  -webkit-transition:0.5s linear all;
  -moz-transition:0.5s linear all;
@@ -18,4 +101,4 @@ li {
 .repeated-item.ng-enter.ng-enter-active,
 .repeated-item.ng-move.ng-move-active {
  opacity:1;
-}
+}*/
