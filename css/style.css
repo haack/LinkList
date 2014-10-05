@@ -1,5 +1,8 @@
-body {
+html, body {
 	background-color: #F8F8F2;
+	padding: 0;
+	margin: 0;
+	color: #3E3D32;
 }
 
 .banner {
@@ -13,7 +16,11 @@ body {
 	letter-spacing: -7px;
 	color: #F8F8F2;
 	font-weight: 300;
+}
+
+.center {
 	margin: 0 auto;
+	width: 550px;
 }
 
 #title .code {
@@ -41,38 +48,69 @@ body {
 }
 
 #content {
-	width: 800px;
-	margin: 0 auto;
+	width: 100%;
 	padding: 20px 50px;
+	background-color: #F8F8F2;
+}
+
+#frame {
+	width: 900px;
+	margin: 0 auto;
+	background-color: #F8F8F2;
+	height: 100%;
+}
+
+#list {
+	padding-left: 0;
 }
 
 #list li {
 	list-style: none;
+	padding-left:0;
 }
 
 .link {
-	border: 1px solid #75715E;
 	margin-bottom: 10px;
 	float: left;
 	width: 100%;
 	font-size: 30px;
+	font-family: 'Open sans';
+	border-bottom: solid 5px #D0D0D0;
 }
 
 .section {
-	border-right: 1px solid #75715E;
-	padding: 15px 25px;
+	padding: 15px 15px;
 }
 
 .link .rank {
 	float: left;
+	font-size: 30px;
+	color: #D0D0D0;
+	width: 20px;
+	background-color: #F8F8F2;
 }
 
 .link .up {
+	padding-top: 20px;
 	float: left;
+	cursor: pointer;
 }
 
 .link .url {
 	float: left;
+	font-size: 40px;
+	line-height: 30px;
+}
+
+.link .url .extra {
+	color: #85816E;
+	font-size: 20px;
+	margin-right: 5px;
+}
+
+.link .url a {
+	text-decoration: none;
+	color: inherit;
 }
 
 .link .tags {
@@ -82,7 +120,6 @@ body {
 .link .hits {
 	float: right;
 	border: none;
-	border-left: 1px solid #75715E;
 }
 
 #adder {
